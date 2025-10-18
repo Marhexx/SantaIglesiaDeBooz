@@ -66,7 +66,8 @@
           <div class="flip-card" id="boozCard" tabindex="0" aria-label="Tarjeta de San Booz. Activa para ver la plegaria.">
             <div class="flip-inner">
               <div class="flip-face front" aria-hidden="false">
-                <img src="assets/img/san-booz.png" alt="San Booz, Patrono de los Trainees" />
+                <img class="portrait" src="assets/img/san-booz.png" alt="San Booz, Patrono de los Trainees" />
+                <img class="halo" src="assets/img/halo.gif" alt="" aria-hidden="true" />
               </div>
               <div class="flip-face back" aria-hidden="true">
                 <div class="prayer">
@@ -83,6 +84,7 @@
             </div>
           </div>
 
+          <!-- Botón debajo, separado de la imagen -->
           <div class="center-actions">
             <button class="btn" id="playHymnCenter">Escuchar música de San Booz</button>
           </div>
@@ -96,60 +98,12 @@
         <h2 class="reveal">Nuestra orden</h2>
         <p class="muted reveal">San Booz nos entrena para servir con foco y humanidad: primera respuesta empática, solución clara y cierre confirmado — siempre por chat.</p>
         <div class="grid" style="margin-top:14px">
-          <div class="col-4 reveal">
-            <div class="card feature">
-              <div class="icon">💬</div>
-              <div>
-                <strong>Canal único: chat</strong>
-                <div class="muted">Sin llamadas ni desvíos. Todo trazable y claro.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 reveal">
-            <div class="card feature">
-              <div class="icon">⚡</div>
-              <div>
-                <strong>Cierre ágil</strong>
-                <div class="muted">Mantra: cerrar el ticket en menos de 2 minutos cuando aplique, sin perder calidad.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 reveal">
-            <div class="card feature">
-              <div class="icon">🧩</div>
-              <div>
-                <strong>Macros humanas</strong>
-                <div class="muted">Plantillas vivas, adaptadas al tono y necesidad real.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 reveal">
-            <div class="card feature">
-              <div class="icon">📈</div>
-              <div>
-                <strong>Métricas sagradas</strong>
-                <div class="muted">CSAT como voz, Calidad como brújula, Productividad con propósito y AHT sereno.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 reveal">
-            <div class="card feature">
-              <div class="icon">🎓</div>
-              <div>
-                <strong>Entrenamiento continuo</strong>
-                <div class="muted">Trainees guiados por Booz: práctica, coaching y mejora diaria.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 reveal">
-            <div class="card feature">
-              <div class="icon">🛡️</div>
-              <div>
-                <strong>Calidad con calidez</strong>
-                <div class="muted">Exactitud de proceso con lenguaje positivo y confirmación.</div>
-              </div>
-            </div>
-          </div>
+          <div class="col-4 reveal"><div class="card feature"><div class="icon">💬</div><div><strong>Canal único: chat</strong><div class="muted">Sin llamadas ni desvíos. Todo trazable y claro.</div></div></div></div>
+          <div class="col-4 reveal"><div class="card feature"><div class="icon">⚡</div><div><strong>Cierre ágil</strong><div class="muted">Mantra: cerrar el ticket en menos de 2 minutos cuando aplique, sin perder calidad.</div></div></div></div>
+          <div class="col-4 reveal"><div class="card feature"><div class="icon">🧩</div><div><strong>Macros humanas</strong><div class="muted">Plantillas vivas, adaptadas al tono y necesidad real.</div></div></div></div>
+          <div class="col-4 reveal"><div class="card feature"><div class="icon">📈</div><div><strong>Métricas sagradas</strong><div class="muted">CSAT, Calidad, Productividad y AHT sereno.</div></div></div></div>
+          <div class="col-4 reveal"><div class="card feature"><div class="icon">🎓</div><div><strong>Entrenamiento continuo</strong><div class="muted">Trainees guiados por Booz.</div></div></div></div>
+          <div class="col-4 reveal"><div class="card feature"><div class="icon">🛡️</div><div><strong>Calidad con calidez</strong><div class="muted">Exactitud y lenguaje positivo.</div></div></div></div>
         </div>
       </div>
     </section>
@@ -168,14 +122,16 @@
       </div>
     </section>
 
-    <!-- CREDO -->
-    <section id="credo" class="section">
+    <!-- CREDO (con imagen de discípulos de fondo) -->
+    <section id="credo" class="section credo-bg">
       <div class="container">
         <h2 class="reveal">Credo de San Booz</h2>
-        <p class="quote reveal">Creo en San Booz, Patrono de los Trainees y Maestro del Buen Servicio, que nos entrena en la paciencia, la claridad y la resolución de tickets.<br>
-            Creo en la Santa Orden del Chat, único canal de atención; renuncio a la llamada y a todo desvío de canal.<br>
-            Creo en el primer saludo empático, breve y útil; en el saludo que alivia y en el cierre que confirma satisfacción.</p>
-        <details class="card reveal" style="margin-top:12px">
+        <p class="quote reveal">
+          Creo en San Booz, Patrono de los Trainees y Maestro del Buen Servicio, que nos entrena en la paciencia, la claridad y la resolución de tickets.<br>
+          Creo en la Santa Orden del Chat, único canal de atención; renuncio a la llamada y a todo desvío de canal.<br>
+          Creo en el primer saludo empático, breve y útil; en el saludo que alivia y en el cierre que confirma satisfacción.
+        </p>
+        <details class="card reveal credo-card" style="margin-top:12px">
           <summary style="cursor:pointer">Ver credo completo</summary>
           <div class="muted credo-body">
             Creo en San Booz, Patrono de los Trainees y Maestro del Buen Servicio, que nos entrena en la paciencia, la claridad y la resolución de tickets.<br>
@@ -230,28 +186,20 @@
       <div class="container">
         <h2 class="reveal">Mandamientos del Chat</h2>
         <div class="grid">
-          <div class="col-6 reveal">
-            <div class="card">
-              <ol>
-                <li>Honrar a San Booz en entrenamiento diario.</li>
-                <li>Solo por chat; sin desvíos de canal.</li>
-                <li>Primera respuesta clara, breve y empática.</li>
-                <li>Respetar AHT sin perder comprensión.</li>
-                <li>Cuidar CSAT con soluciones completas.</li>
-              </ol>
-            </div>
-          </div>
-          <div class="col-6 reveal">
-            <div class="card">
-              <ol start="6">
-                <li>Usar macros con criterio y calidez.</li>
-                <li>No dejar tickets en pending; escalar con contexto.</li>
-                <li>Documentar con precisión y ETA realista.</li>
-                <li>Verificar cierre y próximos pasos.</li>
-                <li>Mejorar una cosa al día.</li>
-              </ol>
-            </div>
-          </div>
+          <div class="col-6 reveal"><div class="card"><ol>
+            <li>Honrar a San Booz en entrenamiento diario.</li>
+            <li>Solo por chat; sin desvíos de canal.</li>
+            <li>Primera respuesta clara, breve y empática.</li>
+            <li>Respetar AHT sin perder comprensión.</li>
+            <li>Cuidar CSAT con soluciones completas.</li>
+          </ol></div></div>
+          <div class="col-6 reveal"><div class="card"><ol start="6">
+            <li>Usar macros con criterio y calidez.</li>
+            <li>No dejar tickets en pending; escalar con contexto.</li>
+            <li>Documentar con precisión y ETA realista.</li>
+            <li>Verificar cierre y próximos pasos.</li>
+            <li>Mejorar una cosa al día.</li>
+          </ol></div></div>
         </div>
       </div>
     </section>
@@ -350,7 +298,8 @@
 
         [Outro]<br>
         Calla la cola, descansa la mano;<br>
-        Booz nos convoca a servir temprano.</pre>
+        Booz nos convoca a servir temprano.
+      </pre>
       <p class="muted">Con Fe en Booz nada me faltará.</p>
     </div>
   </dialog>

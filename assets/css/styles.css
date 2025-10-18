@@ -1,13 +1,15 @@
 :root{
-  --bg: #0b1220; --bg-2:#0e1630; --txt:#eaf2ff; --muted:#b7c2d4;
+  --bg:#0b1220; --bg-2:#0e1630; --txt:#eaf2ff; --muted:#b7c2d4;
   --pri:#2aa96b; --pri-2:#1b8153; --acc:#c7a443; --card:#131b2e;
-  --glass: rgba(255,255,255,.08); --border: rgba(255,255,255,.12);
-  --shadow: 0 10px 30px rgba(0,0,0,.25);
+  --glass:rgba(255,255,255,.08); --border:rgba(255,255,255,.12);
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+  /* Halo control */
+  --halo-opacity:.35; --halo-brightness:1.02; --halo-saturate:.95; --halo-inset:2%;
 }
 [data-theme="light"]{
   --bg:#f6f8fb; --bg-2:#e8eef7; --txt:#0f1a2e; --muted:#4a5a73;
   --pri:#2aa96b; --pri-2:#1b8153; --acc:#b0892b; --card:#ffffff;
-  --glass: rgba(255,255,255,.7); --border:#e7ecf4; --shadow: 0 8px 24px rgba(12, 22, 44, .08);
+  --glass:rgba(255,255,255,.7); --border:#e7ecf4; --shadow:0 8px 24px rgba(12,22,44,.08);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -17,14 +19,14 @@ body{
     radial-gradient(1200px 800px at 10% -10%, #14405a40, transparent 60%),
     radial-gradient(900px 700px at 100% 0%, #1b5e3d40, transparent 60%),
     linear-gradient(180deg,var(--bg),var(--bg-2));
-  background-attachment: fixed;
+  background-attachment:fixed;
 }
 a{color:inherit}
 .container{max-width:1120px;margin:auto;padding:0 20px}
 
 /* Header / Nav */
-header{position:sticky;top:0;z-index:50;backdrop-filter: blur(10px);
-  background:color-mix(in oklab, var(--bg) 70%, transparent);border-bottom:1px solid var(--border)}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+  background:color-mix(in oklab,var(--bg) 70%, transparent);border-bottom:1px solid var(--border)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
 .logo{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--pri),var(--pri-2));box-shadow:var(--shadow)}
@@ -41,14 +43,13 @@ header{position:sticky;top:0;z-index:50;backdrop-filter: blur(10px);
 /* Hero */
 .hero{position:relative;overflow:hidden}
 .hero-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:48px 0}
-@media (max-width: 900px){ .hero-wrap{grid-template-columns:1fr;padding:28px 0} }
+@media (max-width:900px){.hero-wrap{grid-template-columns:1fr;padding:28px 0}}
 .kicker{color:var(--pri);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
 h1{font-size:clamp(28px,4.2vw,56px);line-height:1.05;margin:.3em 0 .4em}
 .lead{color:var(--muted);font-size:clamp(16px,2.2vw,18px)}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 6px}
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.badge{font-size:12px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;
-  background:color-mix(in oklab,var(--pri) 12%, transparent);color:#fff}
+.badge{font-size:12px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;background:color-mix(in oklab,var(--pri) 12%, transparent);color:#fff}
 .card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
 .illus{aspect-ratio:4/3;border-radius:18px;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden;
   background:
@@ -56,82 +57,76 @@ h1{font-size:clamp(28px,4.2vw,56px);line-height:1.05;margin:.3em 0 .4em}
     radial-gradient(240px 240px at 80% 20%, color-mix(in oklab, var(--pri) 45%, transparent), transparent 60%),
     linear-gradient(135deg, color-mix(in oklab,var(--bg) 70%, #0b0f1a), color-mix(in oklab,var(--bg-2) 70%, #0c1524));
 }
-.illus::after{content:"Solo Chat";position:absolute;inset:auto 10% 10% auto;background:rgba(255,255,255,.08);
-  padding:8px 12px;border-radius:999px;border:1px solid var(--border);font-weight:700;letter-spacing:.12em}
-.illus-inner{text-align:center}
-.illus-emoji{font-size:48px}
-.illus-title{font-weight:800;margin-top:8px}
-.illus-sub{color:#e8f5f9a6;margin-top:6px}
+.illus::after{content:"Solo Chat";position:absolute;inset:auto 10% 10% auto;background:rgba(255,255,255,.08);padding:8px 12px;border-radius:999px;border:1px solid var(--border);font-weight:700;letter-spacing:.12em}
+.illus-inner{text-align:center}.illus-emoji{font-size:48px}.illus-title{font-weight:800;margin-top:8px}.illus-sub{color:#e8f5f9a6;margin-top:6px}
 
 /* Secciones */
 section{scroll-margin-top:90px}
 .section{padding:52px 0}
 .section h2{font-size:clamp(22px,3vw,36px);margin:0 0 .4em}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-.col-4{grid-column:span 4} .col-6{grid-column:span 6} .col-12{grid-column:span 12}
-@media (max-width: 900px){ .col-4,.col-6{grid-column:span 12} }
+.col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-12{grid-column:span 12}
+@media (max-width:900px){.col-4,.col-6{grid-column:span 12}}
 .feature{display:flex;gap:12px}
 .icon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--pri),var(--pri-2));color:#fff}
 .muted{color:var(--muted)}
 .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:color-mix(in oklab,var(--acc) 15%, transparent);border:1px solid var(--border);color:var(--txt);font-size:12px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media (max-width: 900px){ .stats{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 .stat{padding:16px;border-radius:14px;background:var(--glass);border:1px solid var(--border);text-align:center}
 .stat .num{font-size:28px;font-weight:800}
 .quote{font-size:18px;border-left:4px solid var(--pri);padding-left:14px}
 .credo-body{margin-top:10px}
 
-/* Centro: flip card y botón (con halo) */
+/* Centro: flip card robusta (halo GIF) + botón fuera */
 .center-card{display:grid;place-items:center;padding:60px 0}
-.flip-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
-.flip-card{perspective:1000px;width:clamp(260px,40vw,420px);height:clamp(320px,52vw,560px);outline:none}
-.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.flip-card:hover .flip-inner{transform:rotateY(180deg)}
+.flip-wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.flip-card{perspective:1200px;width:clamp(260px,40vw,420px);height:clamp(320px,52vw,560px);outline:none}
+.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+/* Flip solo por clic/teclado; si quieres hover, añade: .flip-card:hover .flip-inner{transform:rotateY(180deg)} */
 .flip-card.is-flipped .flip-inner{transform:rotateY(180deg)}
-.flip-face{position:absolute;inset:0;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);backface-visibility:hidden;background:var(--card)}
 
-.front{position:relative}
-.front::before{
-  content:"";
-  position:absolute;
-  top:-20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:80%;
-  height:40px;
-  background:radial-gradient(ellipse, rgba(199,164,67,0.6) 0%, rgba(199,164,67,0.3) 40%, transparent 70%);
-  border-radius:50%;
-  z-index:2;
-  animation:glow 3s ease-in-out infinite alternate;
-}
-.front::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.1) 0%, transparent 60%);
-  border-radius:16px;
-  z-index:1;
-}
-.front img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-  position:relative;
-  z-index:0;
+.flip-face{
+  position:absolute;inset:0;border-radius:16px;overflow:hidden;
+  border:1px solid var(--border);box-shadow:var(--shadow);
+  backface-visibility:hidden;transform:translateZ(0);
 }
 
-.back{transform:rotateY(180deg);display:flex;align-items:center;justify-content:center;background:
-  linear-gradient(180deg, color-mix(in oklab,var(--bg) 60%, #000), color-mix(in oklab,var(--bg-2) 60%, #000))}
-.prayer{padding:18px;max-height:100%;overflow:auto;color:var(--txt);line-height:1.55}
-.prayer p{margin:.2em 0}
-.center-actions{display:flex;justify-content:center}
+/* Frontal */
+.front{z-index:2;background:var(--card)}
+.portrait{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.halo{
+  position:absolute;z-index:2;pointer-events:none;
+  inset:calc(var(--halo-inset) * -1);
+  width:calc(100% + var(--halo-inset) * 2);height:calc(100% + var(--halo-inset) * 2);
+  object-fit:cover;mix-blend-mode:screen;
+  filter:brightness(var(--halo-brightness)) saturate(var(--halo-saturate));
+  opacity:var(--halo-opacity);
+}
+
+/* Trasera legible */
+.back{
+  transform:rotateY(180deg);z-index:3;
+  display:flex;align-items:center;justify-content:center;padding:16px;
+  background:linear-gradient(180deg, rgba(8,10,14,.80), rgba(8,10,14,.86));
+  opacity:1;
+}
+.prayer{
+  width:min(92%,520px);color:#fff;line-height:1.6;font-size:15.5px;
+  background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:18px;text-shadow:0 1px 1px rgba(0,0,0,.7);
+}
+
+/* Oculta la frontal al girar para que no tape */
+.flip-card.is-flipped .front{opacity:0;pointer-events:none}
+
+/* Botón debajo de la imagen */
+.center-actions{display:flex;justify-content:center;margin-top:12px}
 
 /* CTA & Footer */
 .cta{padding:48px 0}
 .cta-wrap{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
-@media (max-width: 800px){ .cta-wrap{grid-template-columns:1fr} }
+@media (max-width:800px){.cta-wrap{grid-template-columns:1fr}}
 .cta-title{margin:.2em 0 .3em}
 footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--border)}
 .footer-wrap{text-align:center}
@@ -146,7 +141,27 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 /* Animations */
 .reveal{opacity:0;transform:translateY(14px);transition:all .6s ease}
 .reveal.visible{opacity:1;transform:none}
-@keyframes glow {
-  0% { opacity:0.4; transform:translateX(-50%) scale(0.9); }
-  100% { opacity:0.8; transform:translateX(-50%) scale(1.1); }
+
+/* FONDO CON DISCÍPULOS EN LA SECCIÓN CREDO */
+.credo-bg{
+  position:relative;
+  /* Imagen de fondo a pantalla completa de la sección */
+  background:
+    linear-gradient(180deg, rgba(8,10,14,.55), rgba(8,10,14,.55)),
+    url('assets/img/discipulos.jpg') center / cover no-repeat fixed;
+  /* Si en iOS el fixed no funciona bien, cámbialo a 'scroll' */
 }
+.credo-bg .container{ position:relative; z-index:1 }
+.credo-bg h2,
+.credo-bg .quote,
+.credo-bg .quote .muted,
+.credo-bg p{ color:#fff }
+.credo-bg .quote{ border-left:4px solid rgba(255,255,255,.7) }
+
+/* Tarjeta del details sobre vidrio para lectura */
+.credo-card{
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.15);
+  color:#eaf2ff;
+}
+.credo-card .credo-body{ color:#eaf2ff }

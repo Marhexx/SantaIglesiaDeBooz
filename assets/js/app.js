@@ -32,9 +32,9 @@ const playCenter = document.getElementById('playHymnCenter');
 async function tryPlayMusic() {
   try { await music.play(); } catch(e){ alert('Pulsa de nuevo para activar el audio.'); }
 }
-if (playHymnBtn && music) playHymnBtn.addEventListener('click', tryPlayMusic);
-if (playHymnAlt && music) playHymnAlt.addEventListener('click', tryPlayMusic);
-if (playCenter && music) playCenter.addEventListener('click', tryPlayMusic);
+[playHymnBtn, playHymnAlt, playCenter].forEach(btn=>{
+  if (btn && music) btn.addEventListener('click', tryPlayMusic);
+});
 
 // Flip card: click/toque/teclado
 const boozCard = document.getElementById('boozCard');
