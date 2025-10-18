@@ -7,6 +7,8 @@
   <meta name="description" content="Religión del servicio por chat: credo, mandamientos, métricas (CSAT, Calidad, Productividad, AHT) y liturgia guiados por San Booz." />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E💬%3C/text%3E%3C/svg%3E">
+  <!-- Precarga de fuente WOFF2 -->
+  <link rel="preload" href="assets/fonts/DIOGENES.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -21,6 +23,7 @@
         <a class="link" href="#mandamientos">Mandamientos</a>
         <a class="link" href="#metricas">Métricas</a>
         <a class="link" href="#liturgia">Liturgia</a>
+        <a class="link" href="#oraciones">Oraciones</a>
         <button id="theme" class="switch" aria-pressed="false" title="Cambiar tema">☀️/🌙</button>
         <a class="btn" href="#unirme">Unirme</a>
       </nav>
@@ -70,6 +73,7 @@
           <div class="flip-card" id="boozCard" tabindex="0" aria-label="Tarjeta de San Booz. Activa para ver la plegaria.">
             <div class="flip-inner">
               <div class="flip-face front" aria-hidden="false">
+                <!-- Para que no se recorte, añade keep-all si esta es la imagen a respetar completa -->
                 <img class="portrait keep-all" src="assets/img/san-booz.png" alt="San Booz, Patrono de los Trainees" />
                 <img class="halo" src="assets/img/halo.gif" alt="" aria-hidden="true" />
               </div>
@@ -100,7 +104,6 @@
         <h2 class="reveal">Nuestra orden</h2>
         <p class="muted reveal">San Booz nos entrena para servir con foco y humanidad: primera respuesta empática, solución clara y cierre confirmado — siempre por chat.</p>
 
-        <!-- Igualadas por CSS + JS -->
         <div class="grid features-grid" style="margin-top:14px">
           <div class="col-4 reveal">
             <div class="card feature">
@@ -213,6 +216,63 @@
         </div>
       </div>
     </section>
+
+<!-- ORACIONES -->
+<section id="oraciones" class="section">
+  <div class="container">
+    <h2 class="reveal">Oraciones de San Booz</h2>
+
+    <!-- Oración principal (desplegable) -->
+    <details class="card prayer-acc reveal" open>
+      <summary class="acc-summary">
+        <span>Oración principal</span>
+        <span class="acc-icon">▾</span>
+      </summary>
+      <div class="acc-body">
+        <p class="muted" style="margin:2px 0 12px">Reza esta plegaria antes de iniciar un turno.</p>
+        <pre class="verse" id="oracionPrincipalText">
+        San Booz, que estás en el training,
+        Santificado sea tu enseñanza.
+        Venga a nosotros tu sabiduría,
+        Hágase tu gestión, así en el ticket como en los KPI’s.
+        Danos hoy las macros de cada día,
+        y perdona nuestros errores de etiqueta,
+        así como nosotros perdonamos a los usuarios que no plantean bien su problema,
+        no nos dejes caer en auditorías innecesarias,
+        y líbranos de las macros mal usadas.
+        Amén, oh gran San Booz, maestro del training y guardián de los trainees.
+        </pre>
+        <div class="prayer-actions">
+          <button class="btn muted" id="copyOracionPrincipal">Copiar oración</button>
+        </div>
+      </div>
+    </details>
+
+    <!-- Ave Booz (desplegable) -->
+    <details class="card prayer-acc reveal" style="margin-top:12px">
+      <summary class="acc-summary">
+        <span>Ave Booz</span>
+        <span class="acc-icon">▾</span>
+      </summary>
+      <div class="acc-body">
+        <p class="muted" style="margin:2px 0 12px">Oración breve para empezar despues de un break.</p>
+        <pre class="verse" id="aveBoozText">
+        Ave Booz, lleno de claridad, el flujo es contigo;
+        bendito eres, Patrono de los Trainees y Maestro del Buen Servicio.
+        Ilumina nuestras manos y serena nuestras macros;
+        guía nuestras labels y dignifica cada internal notes.
+        San Booz, faro de excelencia, ruega por nosotros agentes,
+        ahora y en cada ticket. 
+        Amén.
+        </pre>
+        <div class="prayer-actions">
+          <button class="btn muted" id="copyAveBooz">Copiar oración</button>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
 
     <!-- LITURGIA -->
     <section id="liturgia" class="section">

@@ -1,14 +1,11 @@
-// Theme toggle con persistencia
 const htmlEl = document.documentElement;
 const themeBtn = document.getElementById('theme');
 
-// Al cargar: usar lo guardado o default "dark"
 const saved = localStorage.getItem('theme');
 const initial = saved ? saved : 'dark';
 htmlEl.setAttribute('data-theme', initial);
 if (themeBtn) themeBtn.setAttribute('aria-pressed', initial === 'dark');
 
-// Toggle y guardar
 if (themeBtn) {
   themeBtn.addEventListener('click', () => {
     const next = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -34,10 +31,10 @@ if (openLyricsBtn) {
 
 // Audio controls
 const music = document.getElementById('music');
-const playHymnBtn = document.getElementById('playHymn');      // Hero CTA
-const playHymnAlt = document.getElementById('playHymnAlt');    // Reproductor: Reiniciar
-const playCenter = document.getElementById('playHymnCenter');  // Botón bajo la imagen central
-const togglePauseBtn = document.getElementById('togglePause'); // Pausar/Reanudar
+const playHymnBtn = document.getElementById('playHymn');
+const playHymnAlt = document.getElementById('playHymnAlt');
+const playCenter = document.getElementById('playHymnCenter');
+const togglePauseBtn = document.getElementById('togglePause');
 
 async function playFromStart() {
   try{
@@ -65,7 +62,6 @@ if (togglePauseBtn && music) {
   togglePauseBtn.addEventListener('click', resumeOrPause);
   music.addEventListener('play', ()=> togglePauseBtn.textContent = 'Pausar');
   music.addEventListener('pause', ()=> togglePauseBtn.textContent = 'Reanudar');
-  // Estado inicial
   togglePauseBtn.textContent = 'Reanudar';
 }
 
@@ -78,6 +74,19 @@ if (boozCard) {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlip(); }
   });
 }
+
+if (copyAveBtn) {
+  copyAveBtn.addEventListener('click', async () => {
+    const txt = document.getElementById('aveBoozText')?.innerText || '';
+    try{
+      await navigator.clipboard.writeText(txt.trim());
+      copyAveBtn.textContent = 'Copiado';
+      setTimeout(()=> copyAveBtn.textContent = 'Copiar oración', 1600);
+    }catch{ alert('No se pudo copiar. Copia manualmente, por favor.'); }
+  });
+}
+
+
 
 function equalizeFeatures(){
   const cards = [...document.querySelectorAll('.features-grid .card.feature')];
