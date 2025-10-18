@@ -75,6 +75,21 @@ if (boozCard) {
   });
 }
 
+// Copiar oración principal (acordeón)
+const copyMainBtn = document.getElementById('copyOracionPrincipal');
+if (copyMainBtn) {
+  copyMainBtn.addEventListener('click', async () => {
+    const txt = document.getElementById('oracionPrincipalText')?.innerText || '';
+    try{
+      await navigator.clipboard.writeText(txt.trim());
+      copyMainBtn.textContent = 'Copiado';
+      setTimeout(()=> copyMainBtn.textContent = 'Copiar oración', 1600);
+    }catch{ alert('No se pudo copiar. Copia manualmente, por favor.'); }
+  });
+}
+
+// Copiar Ave Booz (acordeón)
+const copyAveBtn = document.getElementById('copyAveBooz');
 if (copyAveBtn) {
   copyAveBtn.addEventListener('click', async () => {
     const txt = document.getElementById('aveBoozText')?.innerText || '';
