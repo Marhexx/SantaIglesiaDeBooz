@@ -156,10 +156,11 @@ section{scroll-margin-top:90px}
 /* Credo en dos columnas con imagen */
 .credo-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
   gap:24px;
   align-items:start;
 }
+.credo-left, .credo-right{ min-width:0; }
 @media (max-width:1000px){
   .credo-grid{ grid-template-columns:1fr; }
 }
